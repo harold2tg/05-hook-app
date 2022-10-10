@@ -14,9 +14,7 @@ export const CounterApp = () => {
         <hr />
         <button className='btn btn-success' onClick={
           () => setCounter({
-            counter1:counter1 + 1,
-            counter2:counter2,
-            counter3:counter3,
+            counter1:counter1 + 1,counter2,counter3,
             
           })
           
