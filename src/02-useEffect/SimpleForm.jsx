@@ -21,7 +21,7 @@ export const SimpleForm = () => {
 
   useEffect( () => {
     console.log('llamando el useEffect');
-  });
+  }, [] );
 
 
   
