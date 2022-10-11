@@ -12,7 +12,10 @@ export const SimpleForm = () => {
   const onInputChange = ({target}) =>  {
 
     const { name, value } = target;
-  console.log({value, name})
+    setFormState({
+      ...formState,
+      [ name ] : value
+    })
 
   }
 
