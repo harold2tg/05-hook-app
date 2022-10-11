@@ -9,8 +9,10 @@ export const SimpleForm = () => {
 
   const {username, email }  = formState;
 
-  const onInputChange = (event) =>  {
-    console.log(event.target.value)
+  const onInputChange = ({target}) =>  {
+
+    const { name, value } = target;
+    console.log(value, name)
 
   }
 
