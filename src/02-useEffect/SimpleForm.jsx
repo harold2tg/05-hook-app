@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export const SimpleForm = () => {
 
   const [formState, setFormState] = useState({
@@ -19,6 +19,12 @@ export const SimpleForm = () => {
 
   }
 
+  useEffect( () => {
+    console.log('llamando el useEffect');
+  });
+
+
+  
   return (
     <>
     <h1>Formulario Simple</h1>
