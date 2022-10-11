@@ -14,7 +14,7 @@ export const SimpleForm = () => {
     const { name, value } = target;
     setFormState({
       ...formState,
-      [ name ] : value
+      [ name ] : value,
     })
 
   }
