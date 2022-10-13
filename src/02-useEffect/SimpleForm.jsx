@@ -23,7 +23,9 @@ export const SimpleForm = () => {
     console.log('llamando el useEffect');
   }, [] );
 
-
+  useEffect( () => {
+    console.log('changed formState');
+  }, [formState] );
   
   return (
     <>
@@ -43,10 +45,6 @@ export const SimpleForm = () => {
            value={email}
            onChange={onInputChange}
            />           
-
-           
-    </>
-    
-
+    </>    
   )
 }
