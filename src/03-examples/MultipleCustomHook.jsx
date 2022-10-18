@@ -1,8 +1,9 @@
-import React from 'react'
+import {useCounter} from '../hook/useCounter.js'
 import { useFetch } from '../hook/useFetch'
 
 export const MultipleCustomHook = () => {
-    const {data,isLoading,hasError} = useFetch('https://www.breakingbadapi.com/api/quotes/1')
+    const {counter, increment} = useCounter();
+    const {data,isLoading,hasError} = useFetch(`https://www.breakingbadapi.com/api/quotes/${ counter }`)
     const {quote, author } = !!data && data[0].quote
   return (
         <>
@@ -23,7 +24,9 @@ export const MultipleCustomHook = () => {
                 </blockquote>     
             )
         }
-        <button className='btn btn-primary'>
+        <button className='btn btn-primary' 
+                disabled={isLoading}
+                onClick={()=>{increment(1)}}>
             next quote
         </button>
         
