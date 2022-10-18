@@ -3,7 +3,7 @@ import { useFetch } from '../hook/useFetch'
 
 export const MultipleCustomHook = () => {
     const {data,isLoading,hasError} = useFetch('https://www.breakingbadapi.com/api/quotes/1')
-    console.log({data, isLoading,hasError})
+    const {quote, author } = !!data && data[0].quote
   return (
         <>
         <h1>BreakingBad Quotes</h1>
@@ -23,7 +23,9 @@ export const MultipleCustomHook = () => {
                 </blockquote>     
             )
         }
-        
+        <button className='btn btn-primary'>
+            next quote
+        </button>
         
         </>
     )
