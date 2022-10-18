@@ -1,32 +1,24 @@
-import {useCounter, useFetch} from '../hook'
+import {useCounter, useFetch} from '../hook';
+import {LoadingQuote, Quote} from './';
 
 export const MultipleCustomHook = () => {
-    const {counter, increment} = useCounter();
-    const {data,isLoading,hasError} = useFetch(`https://www.breakingbadapi.com/api/quotes/${ counter }`)
-    const {quote, author } = !!data && data[0].quote
+    const { counter, increment, } = useCounter(1);
+    const {data,isLoading,hasError} = useFetch(`https://www.breakingbadapi.com/api/quotes/${ counter }`);
+    const { author, quote } = !!data && data[0];
   return (
         <>
         <h1>BreakingBad Quotes</h1>
         <hr />
         {
-            (isLoading)
-            ?(
-                <div className="alert alert-info text-cennter">
-                loading
-            </div>   
-            ):(
-                <blockquote className='blockquote text-end'>
-                    <p className='mb-2'>{data[0].quote}</p>
-                    <footer className='blockquote-footer'>
-                        {data[0].author}
-                    </footer>
-                </blockquote>     
-            )
+            isLoading // si el isloading esta en True muestra el componente
+            ?<LoadingQuote/>   
+            :<Quote author={author} quote={quote}/>   // si esta en false muestra el componente Quote
         }
+        
         <button className='btn btn-primary' 
-                disabled={isLoading}
-                onClick={()=>{increment(1)}}>
-            next quote
+                disabled={ isLoading }
+                onClick={()=>increment()}>
+            Next quote
         </button>
         
         </>
